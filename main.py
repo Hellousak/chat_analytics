@@ -15,11 +15,13 @@ filtered_df = filter_data(df, start_date, end_date)
 # Header info
 show_header(filtered_df, start_date, end_date)
 
+# Mapa
+show_map(filtered_df)
+
 # Tagy graf
 show_tags_chart(filtered_df, selected_country, selected_category)
 
-# Mapa
-show_map(filtered_df)
+
 
 
 
