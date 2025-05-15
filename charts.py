@@ -4,18 +4,33 @@ import altair as alt
 from collections import defaultdict
 import streamlit as st
 
+
 def show_map(df):
     country_counts = df["session_country_name"].value_counts().reset_index()
     country_counts.columns = ["session_country_name", "count"]
+
     fig = px.choropleth(
         country_counts,
         locations="session_country_name",
         locationmode="country names",
         color="count",
         color_continuous_scale="Blues",
-        title="Chats according to the region"
+        title="Chaty podle regionu"
     )
+
+    fig.update_geos(
+        showcountries=True,
+        lataxis_range=[35, 70],  # výška (latitude)
+        lonaxis_range=[-15, 40]  # šířka (longitude)
+    )
+
+    fig.update_layout(
+        margin={"r":0, "t":50, "l":0, "b":0},
+        title_x=0.5
+    )
+
     st.plotly_chart(fig, use_container_width=True)
+
 
 def show_tags_chart(df, selected_country, selected_category):
     tag_counter = defaultdict(list)
@@ -48,3 +63,4 @@ def show_tags_chart(df, selected_country, selected_category):
         )
     )
     st.altair_chart(chart, use_container_width=True)
+

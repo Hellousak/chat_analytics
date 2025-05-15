@@ -28,3 +28,5 @@ def categorize_tags(tags):
         category = prefix_mapping.get(prefix, 'Request')
         categorized[category].append(tag)
     return categorized
+
+

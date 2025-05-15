@@ -20,3 +20,5 @@ show_map(filtered_df)
 
 # Tagy graf
 show_tags_chart(filtered_df, selected_country, selected_category)
+
+
