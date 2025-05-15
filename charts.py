@@ -20,6 +20,7 @@ def show_map(df):
 
     fig.update_geos(
         showcountries=True,
+        showframe=False,
         lataxis_range=[35, 70],  # výška (latitude)
         lonaxis_range=[-15, 40]  # šířka (longitude)
     )
