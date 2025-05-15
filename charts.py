@@ -14,7 +14,7 @@ def show_map(df):
         locations="session_country_name",
         locationmode="country names",
         color="count",
-        color_continuous_scale="Blues",
+        color_continuous_scale="Purples",
         title="Chats according to the country"
     )
 
