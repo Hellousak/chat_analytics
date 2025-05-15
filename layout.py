@@ -1,5 +1,8 @@
 import streamlit as st
 
+def show_header(df, start_date, end_date):
+    st.markdown(f"**{df.shape[0]} chats** from **{start_date}** to **{end_date}**")
+
 def show_filters(df):
     st.title("Chat Topics Dashboard")
 
@@ -26,7 +29,6 @@ def show_filters(df):
 
     return start_date, end_date, selected_country, selected_category
 
-def show_header(df, start_date, end_date):
-    st.markdown(f"**{df.shape[0]} chats** from **{start_date}** to **{end_date}**")
+
 
 
