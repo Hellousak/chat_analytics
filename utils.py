@@ -24,7 +24,7 @@ def categorize_tags(tags):
     for tag in tags:
         if tag in excluded_tags or tag.endswith('_chat'):
             continue
-        prefix = tag.split('_')[0] if '_' in tag else 'general'
+        prefix = tag.split('_')[0] if '_' in tag else 'Request'
         category = prefix_mapping.get(prefix, 'Request')
         categorized[category].append(tag)
     return categorized

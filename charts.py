@@ -27,10 +27,10 @@ def show_map(df):
 
     fig.update_layout(
         margin={"r":0, "t":50, "l":0, "b":0},
-        title_x=0.5
+        title_x=0.65
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig)
 
 
 def show_tags_chart(df, selected_country, selected_category):
