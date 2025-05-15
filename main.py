@@ -1,4 +1,4 @@
-import streamlit as st
+
 from data_loader import load_data, filter_data
 from layout import show_filters, show_header
 from charts import show_map, show_tags_chart
