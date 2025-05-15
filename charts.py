@@ -15,7 +15,7 @@ def show_map(df):
         locationmode="country names",
         color="count",
         color_continuous_scale="Blues",
-        title="Chaty podle regionu"
+        title="Chats according to the country"
     )
 
     fig.update_geos(
