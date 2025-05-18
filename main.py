@@ -1,10 +1,10 @@
-
-from data_loader import load_data, filter_data
+import io
+from data_loader import upload_and_load_data, filter_data
 from layout import show_filters, show_header
 from charts import show_map, show_tags_chart
 
 # Načtení dat
-df = load_data("reportv-16812456-AUCiFlJlv6y7to1P.csv")
+df = upload_and_load_data()
 
 # Layout - filtry nahoře
 start_date, end_date, selected_country, selected_category = show_filters(df)
