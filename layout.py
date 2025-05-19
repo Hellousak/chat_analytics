@@ -28,7 +28,7 @@ def show_filters(df):
         selected_country = st.selectbox("Pick the Country", countries)
 
     with col4:
-        # Získáme seznam kategorií z prefix_mapping a klíčů category_tree
+        # Získáme seznam kategorií z prefix_mapping a klíčů category_treem
         category_tree_keys = list(category_tree.keys())
         prefix_values = list(prefix_mapping.values())
 
