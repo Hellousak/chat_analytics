@@ -1,4 +1,4 @@
-from config import prefix_mapping, category_tree
+from config import prefix_mapping, category_tree, excluded_tags
 import streamlit as st
 
 def show_header(df, start_date, end_date):
@@ -19,7 +19,11 @@ def show_filters(df):
         end_date = st.date_input("End Date", value=max_date, min_value=min_date, max_value=max_date)
 
     with col3:
-        countries = sorted(df["session_country_name"].dropna().unique())
+        filtered_df = df[
+            df["categorized_tags"].notna() &
+            df["categorized_tags"].apply(lambda cats: any(c not in excluded_tags for c in cats))
+            ]
+        countries = sorted(filtered_df["session_country_name"].dropna().unique())
         countries.insert(0, "All")
         selected_country = st.selectbox("Pick the Country", countries)
 

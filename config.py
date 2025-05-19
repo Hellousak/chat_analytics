@@ -14,7 +14,7 @@ category_tree = {
         'indoor_station': ['indoor_talk', 'indoor_touch', 'indoor_view', 'clip', 'ip_handset', 'indoor_compact'],
         'software': ['ip_eye', 'network_scanner', 'access_commander', 'my2n_management_platform', 'my2n_app',
                          'meeting_room', 'appear', 'picard_commander', 'elevator_center', 'call_centre', 'netstar'],
-        'lift': ['lift1', 'lift2', 'easygate_ip', 'easygate_pro', 'lift8', 'liftgate', 'sentio', 'liftip_2.0'],
+        'lift': ['lift1', 'lift2', 'easygate_ip', 'easygate_pro', 'lift8', 'liftgate', 'sentrio', 'liftip_2.0'],
         'other_product': ['voiceblue_next', 'sip_speaker_(horn)']
         }
     }
