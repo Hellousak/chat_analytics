@@ -30,3 +30,6 @@ def upload_and_load_data(default_path="reportv-16812456-05s1dyVBQoEHsJoA.csv"):
 def filter_data(df, start_date, end_date):
     df = df.dropna(subset=["session_country_name", "tags"])
     return df[(df['session_start_date'].dt.date >= start_date) & (df['session_start_date'].dt.date <= end_date)]
+
+
+
