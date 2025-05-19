@@ -3,6 +3,7 @@ import plotly.express as px
 import altair as alt
 from collections import defaultdict
 import streamlit as st
+from config import category_tree
 
 
 def show_map(df):
@@ -33,21 +34,33 @@ def show_map(df):
     st.plotly_chart(fig)
 
 
-def show_tags_chart(df, selected_country, selected_category):
+def show_tags_chart(df, selected_country, selected_category, selected_subcategory):
+
+
     tag_counter = defaultdict(list)
+
+    # Filtrování podle země
     if selected_country != "All":
         df = df[df["session_country_name"] == selected_country]
 
+    # Procházení kategorií a sběr tagů
     for categories in df["categorized_tags"]:
         for cat, tags in categories.items():
             tag_counter[cat].extend(tags)
 
+    # Výběr tagů
     if selected_category == "All":
         all_tags = sum(tag_counter.values(), [])
-        tag_freq = pd.Series(all_tags).value_counts().head(50)
     else:
-        tag_freq = pd.Series(tag_counter[selected_category]).value_counts().head(50)
+        all_tags = tag_counter[selected_category]
 
+    # Filtrace podle subkategorie
+    if selected_subcategory != "All":
+        allowed_tags = category_tree["Product"].get(selected_subcategory, [])
+        all_tags = [tag for tag in all_tags if tag in allowed_tags]
+
+    # Spočítání výskytu
+    tag_freq = pd.Series(all_tags).value_counts().head(50)
     tag_df = tag_freq.reset_index()
     tag_df.columns = ["tag", "count"]
     tag_df["index"] = tag_df.index
@@ -63,5 +76,6 @@ def show_tags_chart(df, selected_country, selected_category):
             color=alt.Color("color:N", scale=None, legend=None)
         )
     )
+
     st.altair_chart(chart, use_container_width=True)
 

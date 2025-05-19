@@ -3,7 +3,7 @@ from utils import extract_tags, categorize_tags
 import streamlit as st
 
 
-def upload_and_load_data(default_path="reportv-16812456-AUCiFlJlv6y7to1P.csv"):
+def upload_and_load_data(default_path="reportv-16812456-05s1dyVBQoEHsJoA.csv"):
     st.sidebar.markdown("## Upload data")
 
     use_default = st.sidebar.checkbox("Use default data", value=True)
@@ -30,3 +30,6 @@ def upload_and_load_data(default_path="reportv-16812456-AUCiFlJlv6y7to1P.csv"):
 def filter_data(df, start_date, end_date):
     df = df.dropna(subset=["session_country_name", "tags"])
     return df[(df['session_start_date'].dt.date >= start_date) & (df['session_start_date'].dt.date <= end_date)]
+
+
+
