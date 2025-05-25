@@ -3,7 +3,7 @@ from utils import extract_tags, categorize_tags
 import streamlit as st
 
 
-def upload_and_load_data(default_path="reportv-16812456-05s1dyVBQoEHsJoA.csv"):
+def upload_and_load_data(default_path="reportv-16812456-G9wL6SE9LizFV7PM.csv"):
     st.sidebar.markdown("## Upload data")
 
     use_default = st.sidebar.checkbox("Use default data", value=True)
@@ -22,7 +22,13 @@ def upload_and_load_data(default_path="reportv-16812456-05s1dyVBQoEHsJoA.csv"):
         except FileNotFoundError:
             st.error(f"The default CSV file {default_path} was not found.")
             st.stop()
+    df['session_start_date'] = df['session_start_date'].dt.strftime("%d.%m.%Y %H:%M:%S")
     df['session_start_date'] = pd.to_datetime(df['session_start_date (GMT+0)'], format="%Y-%m-%d %H:%M:%S")
+    # Předpokládáme, že tento sloupec už je string nebo ISO datetime
+
+    # Teď změníme formát jen pro zobrazení:
+
+
     df["tags"] = df["tags"].apply(extract_tags)
     df['categorized_tags'] = df['tags'].apply(categorize_tags)
 
