@@ -3,7 +3,7 @@ from utils import extract_tags, categorize_tags
 import streamlit as st
 
 
-def upload_and_load_data(default_path="reportv-16812456-o5kvPtIdIeWynnEr.csv"):
+def upload_and_load_data(default_path="reportv-16812456-2h2B9iZxZroD6QYO.csv"):
     st.sidebar.markdown("## Upload data")
 
     use_default = st.sidebar.checkbox("Use default data", value=True)
